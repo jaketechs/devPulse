@@ -8,11 +8,10 @@ const cpuModel=os.cpus()[0].model
 const upTime=os.uptime()
 const uptimeHours=Math.floor(upTime/3600)
 
-    console.log("=== DevPulse Metrics===")
-    console.log(`CPU:${cpuModel}`)
-    console.log(`Memory Used: ${memPercent}% `)
-    console.log(`System Uptime: ${upTime} seconds`)
-    console.log("========================")
-    console.log(`jam segini ${uptimeHours}`)
+    return {
+        memPercent,
+        cpuModel,
+        uptimeHours,
+    }
 }
 getMetrics() 

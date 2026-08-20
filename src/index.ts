@@ -1,2 +1,3 @@
 import { getMetrics } from "./metrics"
-getMetrics()
+const metrics=getMetrics()
+console.log(metrics)
