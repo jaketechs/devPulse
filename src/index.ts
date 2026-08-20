@@ -1,3 +1,7 @@
 import { getMetrics } from "./metrics"
-const metrics=getMetrics()
+async function runGetMetrics(){
+const metrics= await getMetrics()
 console.log(metrics)
+}
+    runGetMetrics()
+
