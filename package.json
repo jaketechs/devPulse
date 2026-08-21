@@ -12,10 +12,16 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.2.0",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^1.0.0-rc.4",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^1.0.0-rc.4",
+    "pg": "^8.23.0",
+    "postgres": "^3.4.9",
     "systeminformation": "^5.33.1"
   }
 }
