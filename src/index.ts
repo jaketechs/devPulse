@@ -1,14 +1,18 @@
 import { getMetrics } from "./metrics"
-import 'dotenv/config';
-import {drizzle} from 'drizzle-orm/node-postgres';
-if(!process.env.DATABASE_URL){
-    throw new Error("database is not set yet")
-}
-const db = drizzle(process.env.DATABASE_URL);
-
-async function runGetMetrics(){
-const metrics= await getMetrics()
+import {startAgent} from "./agent"
+import {startApi}from "./api"
+import{cekDb} from "./db/client"
+import { db } from "./db/client"
+import { metricsTable } from "./db/schema"
+async function mainFunction(){
+await cekDb()
+const metrics = await getMetrics()
 console.log(metrics)
+//insert metrics
+await db.insert(metricsTable).values({
+    cpu_pct:metrics.cpuLoad,
+    mem_pct:metrics.memPercent
+})
 }
-    runGetMetrics()
-
+    mainFunction()
+   
