@@ -1,9 +1,6 @@
 import 'dotenv/config'
 import {sql} from "drizzle-orm"
 import {drizzle} from 'drizzle-orm/node-postgres';
-
-
-
 if(!process.env.DATABASE_URL){
     throw new Error("database is not set")
 }
