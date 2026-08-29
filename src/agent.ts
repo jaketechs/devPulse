@@ -17,7 +17,7 @@ export async function startAgent(){
   while(true){
     try{
   const metrics=await getMetrics()
-  const isItOK=await pingService(SERVICE_URL)
+  const isItOK=await pingService (SERVICE_URL)
   await db.insert(metricsTable).values({
     cpu_pct:await metrics.cpuLoad,
     mem_pct:await metrics.memPercent,
