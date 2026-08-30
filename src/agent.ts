@@ -3,7 +3,7 @@ import { setTimeout } from "node:timers/promises";
 import { metricsTable } from "./db/schema";
 import { db } from "./db/client";
 
-const SERVICE_URL = "https://example.com";
+const SERVICE_URL = "https://google.com";
 
 async function pingService(url:string):Promise<boolean>{
   try{
