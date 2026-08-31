@@ -3,7 +3,6 @@ import { desc } from "drizzle-orm";
 import { db } from "../db/client";
 import { metricsTable } from "../db/schema";
 export async function routes(fastify:FastifyInstance,options:FastifyPluginOptions){
-
 fastify.get("/api/status",async(request,reply)=>{const latest=await db
     .select()
     .from(metricsTable)
