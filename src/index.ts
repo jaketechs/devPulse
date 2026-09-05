@@ -1,4 +1,5 @@
 import Fastify from "fastify"
+import cors from '@fastify/cors'
 import { cekDb } from "./db/client"
 import { startAgent } from "./agent"
 import { routes as routesStatus } from "./routes/status"
@@ -10,6 +11,7 @@ import{routes as routesHealth}from "./routes/routesHealth"
 async function mainFunction(){
     await cekDb()
     const app=Fastify()
+    await app.register(cors)
     await app.register(routesStatus)
     await app.register(routesMetrics)
     await app.register(routesRange)
