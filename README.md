@@ -7,14 +7,15 @@ A lightweight, real-time infrastructure monitoring dashboard for homelab deploym
 ## Preview
 
 ![DevPulse Dashboard](docs/images/dashboard.png)
-![DevPulse Live Demo](devpulse_demo.webp)
+
+![DevPulse Live Demo](docs/images/demo.webp)
 
 ---
 
 ## How It Works
 
 <p align="center">
-  <img src="Untitled-2026-09-06-2355-1.png" alt="DevPulse Data Flow" width="700">
+  <img src="docs/images/data-flow.png" alt="DevPulse Data Flow" width="700">
 </p>
 
 ```
@@ -31,7 +32,8 @@ Metrics Agent ──writes──► PostgreSQL ◄──reads/writes── Fasti
 
 ## Architecture
 
-![Architecture Diagram](e6c0a0d6-efce-4902-9d34-8a07215f66de.jpg)
+![Architecture Diagram](docs/images/architecture.jpg)
+
 
 | Stage              | Description                                                       |
 | ------------------ | ----------------------------------------------------------------- |
