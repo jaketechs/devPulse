@@ -3,17 +3,21 @@ import { desc } from "drizzle-orm";
 import { db } from "../db/client";
 import { metricsTable } from "../db/schema";
 
-export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
-  fastify.get("/api/metrics", async (request, reply) => {const latest=await db 
-    .select()
-    .from(metricsTable)
-    .orderBy(desc(metricsTable.ts))
-    .limit(1);
-    return{
-      id:latest[0].id,
-      ts:latest[0].ts,
-      cpu_pct:latest[0].cpu_pct,
-      mem_pct:latest[0].mem_pct,   
-    }
-   })
+export async function routes(
+  fastify: FastifyInstance,
+  options: FastifyPluginOptions,
+) {
+  fastify.get("/api/metrics", async (request, reply) => {
+    const latest = await db
+      .select()
+      .from(metricsTable)
+      .orderBy(desc(metricsTable.ts))
+      .limit(1);
+    return {
+      id: latest[0].id,
+      ts: latest[0].ts,
+      cpu_pct: latest[0].cpu_pct,
+      mem_pct: latest[0].mem_pct,
+    };
+  });
 }

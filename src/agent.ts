@@ -5,29 +5,33 @@ import { db } from "./db/client";
 
 const SERVICE_URL = "https://google.com";
 
-async function pingService(url:string):Promise<boolean>{
-  try{
-    const response = await fetch (url,{method:"HEAD"})
+async function pingService(url: string): Promise<boolean> {
+  try {
+    const response = await fetch(url, { method: "HEAD" });
     return response.ok;
-  }catch(error){
+  } catch (error) {
     return false;
   }
 }
-export async function startAgent(){
-  while(true){
-    try{
-  const metrics=await getMetrics()
-  const isItOK=await pingService (SERVICE_URL)
-  await db.insert(metricsTable).values({
-    cpu_pct:await metrics.cpuLoad,
-    mem_pct:await metrics.memPercent,
-    http_ok:await isItOK
-  })
-  console.log(`[${new Date().toISOString()}] Metrics stored. HTTP Status: ${isItOK}`);
-    }catch(error){
-      console.error("error during execution loop:",error);
-    }await setTimeout(3000)}
+export async function startAgent() {
+  while (true) {
+    try {
+      const metrics = await getMetrics();
+      const isItOK = await pingService(SERVICE_URL);
+      await db.insert(metricsTable).values({
+        cpu_pct: await metrics.cpuLoad,
+        mem_pct: await metrics.memPercent,
+        http_ok: await isItOK,
+      });
+      console.log(
+        `[${new Date().toISOString()}] Metrics stored. HTTP Status: ${isItOK}`,
+      );
+    } catch (error) {
+      console.error("error during execution loop:", error);
+    }
+    await setTimeout(3000);
   }
+}
 // agent.ts
 // 1. Import getMetrics from metrics.ts
 // 2. Every 30 seconds:

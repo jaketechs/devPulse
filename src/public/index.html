@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DevPulse — lightweight system monitoring dashboard. Track CPU, memory, uptime, and deploy health."
+    />
+    <title>DevPulse</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-text">DevPulse</span>
+          <span class="logo-dot" id="header-dot"></span>
+        </div>
+        <span class="header-meta" id="header-time"></span>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Status Banner -->
+      <div class="status-banner" id="status-banner">
+        <div class="status-icon"></div>
+        <span class="status-label" id="status-label">Checking…</span>
+        <span class="status-time" id="status-time"></span>
+      </div>
+
+      <!-- Live Metrics -->
+      <section class="section">
+        <h2 class="section-title">Live Metrics</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-chart-wrap">
+              <canvas id="cpu-ring"></canvas>
+            </div>
+            <div class="metric-info">
+              <div class="metric-label">CPU Usage</div>
+              <div class="metric-value" id="cpu-value">
+                —<span class="metric-unit">%</span>
+              </div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-chart-wrap">
+              <canvas id="mem-ring"></canvas>
+            </div>
+            <div class="metric-info">
+              <div class="metric-label">Memory Usage</div>
+              <div class="metric-value" id="mem-value">
+                —<span class="metric-unit">%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Historical Chart -->
+      <section class="section">
+        <div class="chart-header">
+          <h2 class="section-title" style="margin-bottom: 0">History</h2>
+          <div class="chart-controls">
+            <button class="chart-btn active" data-range="30">30m</button>
+            <button class="chart-btn" data-range="60">1h</button>
+            <button class="chart-btn" data-range="180">3h</button>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="history-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Deploys -->
+      <section class="section">
+        <h2 class="section-title">Recent Deploys</h2>
+        <table class="deploys-table" id="deploys-table">
+          <thead>
+            <tr>
+              <th>Commit</th>
+              <th>Branch</th>
+              <th>Status</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="deploys-body">
+            <tr>
+              <td colspan="4" class="loading-text">Loading deploys…</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">DevPulse v1.0</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
