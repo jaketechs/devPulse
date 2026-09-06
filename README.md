@@ -3,6 +3,7 @@
 > **Know if your deploy made your app better or worse — automatically, every time.**
 
 A lightweight, real-time infrastructure monitoring dashboard for homelab deployments.
+check out the demo on devpulse.my.id
 
 ## Preview
 
