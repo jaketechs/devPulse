@@ -6,8 +6,7 @@ A lightweight, real-time infrastructure monitoring dashboard for homelab deploym
 
 ## Preview
 
-![DevPulse Dashboard](devpulse_screenshot.png)
-
+![DevPulse Dashboard](docs/images/dashboard.png)
 ![DevPulse Live Demo](devpulse_demo.webp)
 
 ---
